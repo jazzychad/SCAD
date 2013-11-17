@@ -17,17 +17,15 @@ module num(_n) {
 
 // create full digit tag
 module tag(_num) {
-
-		union() {
-			translate([0.5, 0.5, 0]) {
-				minkowski() {
-					cube([5,7,0.25]);
-					cylinder(h=0.25, r=0.5);
-				}
+	union() {
+		translate([0.5, 0.5, 0]) {
+			minkowski() {
+				cube([5,7,0.25]);
+				cylinder(h=0.25, r=0.5);
 			}
-			translate([-2,0,0.25]) color("red") num(_num);
 		}
-
+		translate([-2,0,0.25]) color("red") num(_num);
+	}
 }
 
 // make a top or bottom half of a digit tag
@@ -63,6 +61,18 @@ module combined_half_tag(_num) {
 				half_tag(_back, 0);
 			}
 		}
+
+		// make the tag a bit taller overall
+		translate([0.5, 0.5, -0.5]) {
+			minkowski() {
+				cube([5,5,0.75]);
+				cylinder(h=0.25, r=0.5);
+			}
+		}
+
+		// sphere nubs to go in drive-cylinder
+		translate([0, 1.0, 0]) sphere(r=0.5);
+		translate([6, 1.0, 0]) sphere(r=0.5);
 	}
 }
 
@@ -70,3 +80,7 @@ module combined_half_tag(_num) {
 for (_i = [0 : 9]) {
 	translate([_i*8, 0, 0]) combined_half_tag(_i);
 }
+
+//for (_j = [0 : 6]) {
+//	translate([_j + 0.5, -3, 0]) sphere(r=0.5);
+//}
