@@ -35,7 +35,7 @@ module half_tag(_num, _top=1) {
 		translate([0, -4, 0]) {
 			difference() {
 				tag(_num);
-				translate([0, 0, -1]) cube([8,4, 8]);
+				translate([-1, 0, -1]) cube([9,4, 9]);
 			}
 		}
 	}
@@ -44,7 +44,7 @@ module half_tag(_num, _top=1) {
 	if (_top == 0) {
 		difference() {
 			tag(_num);
-			translate([-0.5, 4, -1]) cube([8, 8, 8]);
+			translate([-1.5, 4, -1]) cube([9, 8, 9]);
 		}
 	}
 }
@@ -71,8 +71,8 @@ module combined_half_tag(_num) {
 		}
 
 		// sphere nubs to go in drive-cylinder
-		translate([0, 1.0, 0]) sphere(r=0.5);
-		translate([6, 1.0, 0]) sphere(r=0.5);
+		translate([0, 1.2, 0]) sphere(r=0.5);
+		translate([6, 1.2, 0]) sphere(r=0.5);
 	}
 }
 
