@@ -12,6 +12,8 @@ module drive_cylinder(_r, _h, _numholes) {
 			translate([0, 0, _h-1]) endcap(_r, _numholes);
 			translate([0, 0, _h]) gear_shaft(_r/2, 1, 20);
 		}
+
+		// hole 
 		translate([0,0,-1]) cylinder(r=1, h=_h+3);
 	}
 }
